@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <main.h>
+#include "main.h"
 
 /**
  * factorial - finds factorial
@@ -23,9 +23,12 @@ int factorial(int n)
 	{
 		return n * factorial(n-1);
 	}
+}
 
 int main(void)
 {
-	printf("%d\n", factorial(n));
+	int f;
+
+	printf("%d\n", factorial(f));
 	return (0);
 }
