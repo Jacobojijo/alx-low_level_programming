@@ -29,11 +29,3 @@ int factorial(int n)
 		return n * factorial(n-1);
 	}
 }
-
-int main(void)
-{
-	int f;
-
-	printf("%d\n", factorial(f));
-	return (0);
-}
