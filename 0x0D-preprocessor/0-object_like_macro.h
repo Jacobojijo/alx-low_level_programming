@@ -1,3 +1,3 @@
-#define SIZE
+#ifnde;f SIZE
 #define SIZE 24
 #endif
