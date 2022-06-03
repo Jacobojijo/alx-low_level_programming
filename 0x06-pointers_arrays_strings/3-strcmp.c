@@ -1,26 +1,27 @@
 #include "main.h"
-/**
- * _strcmp - compares two strings
- * @s1: string 1
- * @s2: string 2
- * Return: 0 if matching, and ns1 - ns2 if not matching
-*/
+#include <stdio.h>
 
+/**
+ * _strcmp - check the code for Holberton School students.
+ * @s1: is a pointer type char
+ * @s2: is a pointer type char
+ * Return: Always 0.
+ */
 int _strcmp(char *s1, char *s2)
 {
-int i;
+int result, i;
 
-/**
- * We have reached the end of S1 OR we have reached the end of S2
- * 
-*/
-
-for (i = 0; s1[i] != '\0' || s2[i] != '\0'; i++)
+for (i = 0; s1[i] != '\0'; i++)
 {
-	if (s1[i] != s2[i])
-	{
-		return (s1[i] - s2[i]);
-	}
+if (s1[i] == s2[i])
+result = (s1[i] - '0') - (s2[i] - '0');
+
+else
+{
+result = (s1[i] - '0') - (s2[i] - '0');
+break;
 }
-return (0);
+}
+
+return (result);
 }
