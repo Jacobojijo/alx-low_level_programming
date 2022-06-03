@@ -1,29 +1,38 @@
 #include "main.h"
-
+#include <stdlib.h>
 /**
- * print_number - prints an integer.
- * @n: integer
- * Return: void
+ * print_number - check the code for Holberton School students.
+ * @n: is a int number
+ * Return: Always 0.
  */
-
 void print_number(int n)
 {
-int divisor = 1, i, resp;
+int cont = 1, num = n;
 
 if (n < 0)
+_putchar('-');
+
+while (num / 10 != 0)
 {
-	_putchar('-');
-	n *= -1;
+cont = cont * 10;
+num = num / 10;
 }
 
-for (i = 0; n / divisor > 9; i++, divisor *= 10)
-;
-
-for (; divisor >= 1; n %= divisor, divisor /= 10)
+while ((n / cont != 0) && (cont != 1))
 {
-	resp = n / divisor;
-	_putchar('0' + resp);
+_putchar(abs((n / cont)) + '0');
 
+n = n % cont;
+
+if (cont > 1)
+cont = cont / 10;
+
+while ((abs(n) < cont) &&(cont > 1))
+{
+_putchar('0');
+cont = cont / 10;
+}
 }
 
+_putchar(abs(n) + '0');
 }
