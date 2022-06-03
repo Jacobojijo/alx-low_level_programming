@@ -1,5 +1,5 @@
-#ifndef MAIN_FUNTIONS
-#define MAIN_FUNTIONS
+#ifndef HOLBERTON_FUNTIONS
+#define HOLBERTON_FUNTIONS
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
