@@ -2,23 +2,26 @@
 #include <stdio.h>
 
 /**
- * _strcat - check the code for Holberton School students.
- * @dest: is a pointer type char
- * @src: is a pointer type char
- * Return: Always 0.
+ * _strcat - concat 2 string
+ * @dest:char
+ * @src:char
+ * Return:char
  */
 char *_strcat(char *dest, char *src)
 {
-int i, j;
-for (i = 0; *dest != 0; i++)
-dest++;
+	char *s = dest;
 
-for (j = 0; src[j] != 0; j++)
-{
-*dest = src[j];
-dest++;
-}
-*dest = '\0';
-dest -= (i + j);
-return (dest);
+	while (*dest != '\0')
+	{
+		dest++;
+	}
+
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+	return (s);
 }
