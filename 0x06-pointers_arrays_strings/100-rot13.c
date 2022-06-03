@@ -1,29 +1,31 @@
-#include "main.h"
+#include "holberton.h"
+#include <stdio.h>
 
 /**
- * print_number - prints an integer.
- * @n: integer
- * Return: void
+ * rot13 - check the code for Holberton School students.
+ * @a: is a pointer type char
+ * Return: Always 0.
+ *
  */
-
-void print_number(int n)
+char *rot13(char *a)
 {
-int divisor = 1, i, resp;
+char leet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char chan[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+int i, j;
 
-if (n < 0)
+for (i = 0; a[i] != '\0'; i++)
 {
-	_putchar('-');
-	n *= -1;
+
+for (j = 0; leet[j] != '\0'; j++)
+{
+if (a[i] == leet[j])
+{
+a[i] = chan[j];
+break;
 }
 
-for (i = 0; n / divisor > 9; i++, divisor *= 10)
-;
-
-for (; divisor >= 1; n %= divisor, divisor /= 10)
-{
-	resp = n / divisor;
-	_putchar('0' + resp);
-
 }
 
+}
+return (a);
 }
