@@ -1,1 +1,1 @@
-pointers readme
+pointers and arrays
