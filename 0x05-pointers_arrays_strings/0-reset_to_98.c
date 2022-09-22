@@ -14,12 +14,10 @@ void reset_to_98(int *n)
 
 int main(void)
 {
-	int i;
+
 	int *n;
-	
-	n = &i;
-	
+
 	reset_to_98(n);
-	
+	printf("%d\n", n);	
 	return (0);
 }
