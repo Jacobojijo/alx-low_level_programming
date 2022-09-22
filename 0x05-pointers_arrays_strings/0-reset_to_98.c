@@ -21,6 +21,7 @@ int main(void)
 	m = &n;
 
 	reset_to_98(m);
-	printf("%d\n", n);
+	_putchar(n);
+	_putchar("\n");
 	return (0);
 }
