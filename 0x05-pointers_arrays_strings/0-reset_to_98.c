@@ -2,10 +2,10 @@
 #include "main.h"
 
 /**
- * main - check the code
+ * main - entry point
  *
- * Return: Always 0.
- */
+ * Return: Always 0 success
+*/
 
 void reset_to_98(int *n)
 {
@@ -21,6 +21,6 @@ int main(void)
 	m = &n;
 
 	reset_to_98(m);
-	printf("%d\n", n);	
+	printf("%d\n", n);
 	return (0);
 }
