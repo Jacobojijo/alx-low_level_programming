@@ -1,50 +1,57 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "lists.h"
+
 /**
- * delete_dnodeint_at_index -delete node
- * Description: Function that deletes the node at index index of a dlistint.
- * @head: Head of the list. Pointer to a structure dlistint_s
- * @index: the inde of the node that should be deleted, index starts at 0
- * Return: 1 if succeed, -1 if it failed.
- **/
+ * delete_dnodeint_at_index - deletes a node at a specified index
+ * @head: pointer to pointer to a dlistint_t list
+ * @index: index of node to be deleted
+ *
+ * Return: 1 if it succeeded, -1 if it failed
+ */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *temp, *copy;
 	unsigned int i;
+	size_t len = 0;
+	dlistint_t *current = *head, *tmp = NULL;
 
 	if (*head == NULL)
 		return (-1);
-
-	temp = *head;
-
-	if (index == 0)
+	len = dlistint_len(*head);
+	if (index >= len)
+		return (-1);
+	if (index == 0 && len > 0)
 	{
-		temp->next->prev = NULL;
-		temp = temp->next;
-		free(*head);
-		*head = temp;
+		tmp = *head;
+		*head = (*head)->next;
+		if (len != 1)
+			(*head)->prev = NULL;
+		free(tmp);
 		return (1);
 	}
-		for (i = 1; i < index; i++)
-		{
-			if (temp->next == NULL)
-				return (-1);
+	i = 0;
+	while (i < index)
+	{
+		current = current->next;
+		i++;
+	}
+	current->prev->next = current->next;
+	if (index != len - 1)
+		current->next->prev = current->prev;
+	free(current);
+	return (1);
+}
+/**
+ * dlistint_len - returns number of elements in a linked list
+ * @h: pointer to a struct of type dlistint_t
+ * Return: number of elements
+ */
+size_t dlistint_len(const dlistint_t *h)
+{
+	int counter = 0;
 
-			temp = temp->next;
-		}
-		copy = temp;
-		if (copy->next->next != NULL)
-		{
-		copy = copy->next->next;
-		free(temp->next);
-		temp->next = copy;
-		copy->prev = temp;
-		return (1);
-		}
-		copy = copy->next;
-		free(copy);
-		temp->next = NULL;
-		*head = temp;
-		return (1);
+	while (h)
+	{
+		counter++;
+		h = h->next;
+	}
+	return (counter);
 }

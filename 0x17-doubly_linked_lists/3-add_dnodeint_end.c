@@ -1,40 +1,37 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "lists.h"
+
 /**
- * add_dnodeint_end -add node to list.
- *Description: Function that adds a new node at the end of a dlistint_t list
- * @head: Head of the list. Pointer to a structure dlistint_s
- * @n: int value in the structure
- * Return: the address of the new element or NULL if fail (the new node)
- **/
+ * add_dnodeint_end - a function that adds a new node at
+ * the end of a dlistint_t list.
+ *
+ * @head: The head of the dlinkedlist
+ * @n: The int inside of the element
+ *
+ * Return: The pointer to the new node
+ */
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	dlistint_t *newNode, *tmp;
+	dlistint_t *node;
+	dlistint_t *keep;
 
-	if (head == NULL)
+	node = malloc(sizeof(dlistint_t));
+	if (!node)
 		return (NULL);
 
-	newNode = malloc(sizeof(dlistint_t));
-
-	if (newNode == NULL)
-		return (NULL);
-
-	newNode->n = n;
-	newNode->next = NULL;
-
-	if (*head == NULL)
+	node->n = n;
+	node->next = NULL;
+	if (!(*head))
 	{
-		newNode->prev = NULL;
-		*head = newNode;
-		return (newNode);
+		node->prev = NULL;
+		(*head) = node;
 	}
-	tmp = *head;
-		while (tmp->next != NULL)
-			tmp = tmp->next;
-
-		newNode->prev = tmp;
-		tmp->next = newNode;
-
-		return (newNode);
+	else
+	{
+		keep = (*head);
+		while (keep->next)
+			keep = keep->next;
+		keep->next = node;
+		node->prev = keep;
+	}
+	return (node);
 }
