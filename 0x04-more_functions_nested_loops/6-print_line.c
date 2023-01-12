@@ -1,30 +1,26 @@
 #include "main.h"
 
 /**
- * more_numbers - prints 0 - 14
+ * print_line - Prints '_' n times
+ * @n: n is an integer specifying how many
+ * times _ is printed
  *
- * Return: void
+ * Return: Null Void
  */
-
-void more_numbers(void)
+void print_line(int n)
 {
-	char n, c;
-	int i = 0;
+	int i;
 
-	while (i < 10)
+	if (n <= 0)
 	{
-		for (n = 0; n <= 14; n++)
-		{
-			c = n;
-			if (n > 9)
-			{
-				_putchar('1');
-				c = n % 10;
-			}
-			_putchar('0' + c);
-		}
-
 		_putchar('\n');
-		i++;
+	}
+	else
+	{
+		for (i = 0; i < n; i++)
+		{
+			_putchar('_');
+		}
+		_putchar('\n');
 	}
 }
