@@ -1,13 +1,18 @@
 #include "main.h"
+
 /**
- * _puts - prints a string, followed by a new line, to stdout
- * @str: string to print
+ * print_rev - prints a string in reverse
+ * @s: the used string reference pointer
+ * Return: 0
  */
-void _puts(char *str)
+
+void print_rev(char *s)
 {
-	while (*str != '\0')
-	{
-		_putchar(*str++);
-	}
+	int i = 0;
+
+	while (s[i])
+		i++;
+	while (i--)
+		_putchar(s[i]);
 	_putchar('\n');
 }
